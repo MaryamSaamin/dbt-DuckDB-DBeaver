@@ -1,0 +1,26 @@
+version: 2
+
+sources:
+  - name: marketing_raw
+    schema: main
+
+    tables:
+      - name: ae_ad_network_1_campaign_updates
+        meta:
+          external_location: "seeds/ae_ad_network_1_campaign_updates.csv"
+
+      - name: ae_ad_network_1_geo_dictionary
+        meta:
+          external_location: "seeds/ae_ad_network_1_geo_dictionary.csv"
+
+      - name: ae_ad_network_1_country_report
+        meta:
+          external_location: "seeds/ae_ad_network_1_country_report.csv"
+
+      - name: ae_ad_network_1_detailed_report
+        meta:
+          external_location: "seeds/ae_ad_network_1_detailed_report.csv"
+
+      - name: ae_ad_network_2_report
+        meta:
+          external_location: "seeds/ae_ad_network_2_report.csv"
