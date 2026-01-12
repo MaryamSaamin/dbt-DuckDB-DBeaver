@@ -1,0 +1,12 @@
+MarketingAD:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: marketingDB.duckdb
+      threads: 1
+
+    prod:
+      type: duckdb
+      path: prod.duckdb
+      threads: 4
