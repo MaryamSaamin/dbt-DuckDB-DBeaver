@@ -1,0 +1,55 @@
+version: 2
+
+models:
+  - name: mart_fact_network_report
+    description: "Unified fact table for ad network performance"
+    columns:
+      - name: campaign_id
+        tests:
+          - not_null
+      - name: campaign_name
+      - name: update_date
+        tests:
+          - not_null
+      - name: campaign_code
+        tests:
+          - not_null
+          - accepted_values:
+             arguments:
+               values: ['1','2']
+
+      - name: country_code
+        tests:
+          - not_null
+      
+      - name: spend
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              arguments:
+                column_name: spend
+                expression: ">= 0"
+      - name: impressions
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              arguments:
+                column_name: impressions
+                expression: ">= 0"
+      - name: clicks
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              arguments:
+                column_name: clicks
+                expression: ">= 0"
+
+  - name: stg_geo_dictionary
+    columns:
+      - name: country_code
+        tests:
+          - not_null
+      - name: country_code_id
+        tests:
+          - not_null
+   
